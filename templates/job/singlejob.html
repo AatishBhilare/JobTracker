@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% block bodycontent %}
+
+<div class="wrapper">
+
+    <!-- Single Job View -->
+    <div class="row gutters-sm">
+        <div class="col-12 col-m-12 col-sm-12">
+            <div class="card" style="background-color: white;">
+
+                <div class="card-header">
+                    <h2>Job - {{jObj.job_name}}</h2>
+                </div>
+
+                <div class="card-content" style="text-align: center;">
+
+                    <div class="row" style="height: 50px;">
+                        <div class="col-sm-4">
+                            <h6 class="mb-0">Job ID</h6>
+                        </div>
+                        <div class="col-sm-5 text-secondary">
+                            {{jObj.id}}
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="row" style="height: 50px;">
+                        <div class="col-sm-4">
+                            <h6 class="mb-0">Company Name</h6>
+                        </div>
+                        <div class="col-sm-5 text-secondary">
+                            {{jObj.job_name}}
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="row" style="height: 50px;">
+                        <div class="col-sm-4">
+                            <h6 class="mb-0">Job Title</h6>
+                        </div>
+                        <div class="col-sm-5 text-secondary">
+                            {{jObj.job_title}}
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="row" style="height: 50px;">
+                        <div class="col-sm-4">
+                            <h6 class="mb-0">CTC</h6>
+                        </div>
+                        <div class="col-sm-5 text-secondary">
+                            {{jObj.job_ctc}}
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="row" style="height: 50px;">
+                        <div class="col-sm-4">
+                            <h6 class="mb-0">Location</h6>
+                        </div>
+                        <div class="col-sm-5 text-secondary">
+                            {{jObj.job_location}}
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="row" style="height: 70px;">
+                        <div class="col-sm-4">
+                            <h6 class="mb-0">Job Requirement</h6>
+                        </div>
+                        <div class="col-sm-5 text-secondary">
+                            {{jObj.job_requirement}}
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="row" style="height: 50px;">
+                        <div class="col-sm-4">
+                            <h6 class="mb-0">Registration Site</h6>
+                        </div>
+                        <div class="col-sm-5 text-secondary">
+                            {{jObj.register_site}}
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="row" style="height: 50px;">
+                        <div class="col-sm-4">
+                            <h6 class="mb-0">Registration Date</h6>
+                        </div>
+                        <div class="col-sm-5 text-secondary">
+                            {{jObj.register_date}}
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="row" style="height: 50px; text-align:center;">
+                        <div class="col-sm-12">
+                            <a href="{%url 'job' %}" class="btn btn-secondary">Close</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- End of Single Job View -->
+
+</div>
+
+{% endblock %}

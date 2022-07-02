@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+    <title>JOB TRACKER</title>
+
+    <meta name="viewport"
+          content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="icon" type="image/png" href="{% static 'img/pc.png' %}"/>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'stylesheet/style.css' %}">
+
+    {%block blockstyle%}
+    {%endblock%}
+</head>
+
+<body class="overlay-scrollbar">
+
+<!-- navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a href="{% url 'index' %}">
+            <img src="{% static 'img/JT.jpg' %}" alt="JOB TRACKER" class="logo">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- NAVBAR -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- NAVBAR LEFT -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <!-- HOME -->
+                <li class="nav-item  {%if request.resolver_match.url_name == 'index' %}active{%endif%}">
+                    <a class="nav-link" aria-current="page" href="{% url 'index' %}">Home</a>
+                </li>
+                <!-- JOB -->
+                <li class="nav-item {%if request.resolver_match.url_name == 'job' or request.resolver_match.url_name == 'addjob' or request.resolver_match.url_name == 'editjob' or request.resolver_match.url_name == 'deletejob' or request.resolver_match.url_name == 'singlejob' %}active{%endif%}">
+                    <a class="nav-link" href="{% url 'job' %}">Job</a>
+                </li>
+                <!-- DOCUMENTS -->
+                <li class="nav-item {%if request.resolver_match.url_name == 'document' or request.resolver_match.url_name == 'adddoc' or request.resolver_match.url_name == 'editdoc' or request.resolver_match.url_name == 'deletedoc' %}active{%endif%}">
+                    <a class="nav-link" href="{% url 'document' %}">Documents</a>
+                </li>
+            </ul>
+
+            <!-- NAVBAR RIGHT -->
+            <ul class="navbar-nav nav-right">
+                <!-- PROFILE -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link avt" style="cursor: pointer;">
+                        <img src="{% static 'img/profile.png' %}" alt="User image">
+                    </a>
+                    <div class="dropdown-content">
+                        <a href="{%url 'user_profile' request.user.id %}"><i class="fa fa-user"></i> &nbsp; Profile</a>
+                        <a href="{% url 'logout' %}"><i class="fa fa-sign-out"></i> &nbsp; Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+<!-- end navbar -->
+
+{% block bodycontent %}
+
+{% endblock %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

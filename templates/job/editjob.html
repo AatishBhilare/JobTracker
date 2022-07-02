@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+{% block bodycontent %}
+
+<div class="wrapper">
+
+    <!-- Edit Job Form -->
+    <div class="row gutters-sm">
+        <div class="col-12 col-m-12 col-sm-12">
+            <div class="card" style="background-color: white;">
+
+                <div class="card-header">
+                    <h2>Edit Job</h2>
+                </div>
+
+                <div class="card-content" style="text-align: center;">
+                    <form method="POST" enctype="multipart/form-data">
+                        {%csrf_token%}
+
+                        <div class="row" style="height: 50px;">
+                            <div class="col-sm-4">
+                                <h6 class="mb-0">Company Name</h6>
+                            </div>
+                            <div class="col-sm-5">
+                                {{form.job_name}}
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row" style="height: 50px;">
+                            <div class="col-sm-4">
+                                <h6 class="mb-0">Job Title</h6>
+                            </div>
+                            <div class="col-sm-5">
+                                {{form.job_title}}
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row" style="height: 50px;">
+                            <div class="col-sm-4">
+                                <h6 class="mb-0">CTC</h6>
+                            </div>
+                            <div class="col-sm-5">
+                                {{form.job_ctc}}
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row" style="height: 50px;">
+                            <div class="col-sm-4">
+                                <h6 class="mb-0">Location</h6>
+                            </div>
+                            <div class="col-sm-5">
+                                {{form.job_location}}
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row" style="height: 70px;">
+                            <div class="col-sm-4">
+                                <h6 class="mb-0">Job Requirement</h6>
+                            </div>
+                            <div class="col-sm-5">
+                                {{form.job_requirement}}
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row" style="height: 50px;">
+                            <div class="col-sm-4">
+                                <h6 class="mb-0">Registration Site</h6>
+                            </div>
+                            <div class="col-sm-5">
+                                {{form.register_site}}
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row" style="height: 50px;">
+                            <div class="col-sm-4">
+                                <h6 class="mb-0">Registration Date</h6>
+                            </div>
+                            <div class="col-sm-5">
+                                {{form.register_date}}
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row" style="height: 50px; text-align:center;">
+                            <div class="col-sm-12 text-secondary">
+                                <a href="{%url 'job'%}" class="btn btn-secondary">Close</a>
+                                <input type="submit" name="submit" value="Update" class="addBtn"
+                                       style="margin-left: 10px; padding:5px; border: 0px; border-radius:5px; width:85px; height:43px;">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- End of Edit Job Form -->
+
+</div>
+
+{% endblock %}

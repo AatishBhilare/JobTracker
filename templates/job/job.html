@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block bodycontent %}
+
+<div class="wrapper">
+
+    <!-- Job Table -->
+    <div class="row gutters-sm">
+        <div class="col-12 col-m-12 col-sm-12">
+            <div class="card" style="background-color: white;">
+
+                <div class="card-header">
+                    <div class="row" style="margin:0;">
+                        <div class="col-sm-8">
+                            <h2>Jobs</h2>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="{%url 'addjob'%}" class="addBtn" style="float: right;">+ Add New</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-content">
+                    <table>
+                        <thead style="border-bottom: 1.5px solid lightgray; border-top: 1.5px solid lightgray;">
+                        <tr>
+                            <th>Sr No.</th>
+                            <th>Company Name</th>
+                            <th>Job Title</th>
+                            <th>CTC</th>
+                            <th>Location</th>
+                            <th>Date</th>
+                            <th>Site</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for jObj in jobObj %}
+                        <tr style="border-bottom: 0.3px solid lightgray;">
+                            <td>{{jObj.id}}</td>
+                            <td>{{jObj.job_name}}</td>
+                            <td>{{jObj.job_title}}</td>
+                            <td>{{jObj.job_ctc}}</td>
+                            <td>{{jObj.job_location}}</td>
+                            <td>{{jObj.register_date}}</td>
+                            <td>{{jObj.register_site}}</td>
+                            <td>
+                                <a class="btn viewBtn" href="{%url 'singlejob' jObj.id %}">View</a>
+                            </td>
+                            <td>
+                                <a class="btn addBtn2" href="{%url 'editjob' jObj.id %}">Edit</a>
+                            </td>
+                            <td>
+                                <a class="btn delBtn" href="{%url 'deletejob' jObj.id %}">Delete</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- End of Job Table -->
+
+</div>
+
+{% endblock %}

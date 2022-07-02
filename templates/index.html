@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block bodycontent %}
+
+<div class="wrapper">
+
+    <!-- Index -->
+    <div class="row gutters-sm">
+        <div class="col-12 col-m-12 col-sm-12">
+            <div class="card" style="background-color: white;">
+                <div class="card-content">
+                    <div class="logodiv">
+                        <h2 class="txtlogo" data-text="&nbsp;JobTracker">&nbsp; JobTracker</h2>
+                    </div>
+                    <div style="text-align:center;">
+                        <h3 style="margin-bottom:20px;">Organize Your Job Applications and Documents</h3>
+                        <h5 class="text-secondary">Track your job applications and keep your
+                            documents, all in one place</h5>
+                        <div style="margin-top:60px; margin-bottom:60px;">
+                            <a href="{%url 'job'%}" class="btn addBtn" style="width:200px; margin-right:20px;">Track
+                                Jobs</a>
+                            <a href="{%url 'document'%}" class="btn addBtn" style="width:200px;">Manage Documents</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of Index -->
+</div>
+
+{% endblock %}

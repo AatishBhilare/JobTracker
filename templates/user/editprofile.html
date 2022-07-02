@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block bodycontent %}
+
+<div class="wrapper">
+
+    <!-- Edit User Profile -->
+    <div class="row gutters-sm">
+        <div class="col-12 col-m-12 col-sm-12">
+            <div class="card" style="background-color: white;">
+
+                <div class="card-header">
+                    <div class="row" style="margin:0;">
+                        <div class="col-sm-8">
+                            <h2>Edit Profile - {{user.username}}</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-content" style="text-align: center;">
+                    <form method="POST" enctype="multipart/form-data">
+                        {%csrf_token%}
+
+                        <div class="row" style="height: 50px; text-align:center;">
+                            <div class="col-sm-4">
+                                <h6 class="mb-0">Username</h6>
+                            </div>
+                            <div class="col-sm-5">
+                                {{user.username}}
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row" style="height: 50px; text-align:center;">
+                            <div class="col-sm-4">
+                                <h6 class="mb-0">First Name</h6>
+                            </div>
+                            <div class="col-sm-5">
+                                {{form.first_name}}
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row" style="height: 50px; text-align:center;">
+                            <div class="col-sm-4">
+                                <h6 class="mb-0">Last Name</h6>
+                            </div>
+                            <div class="col-sm-5">
+                                {{form.last_name}}
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row" style="height: 50px; text-align:center;">
+                            <div class="col-sm-4">
+                                <h6 class="mb-0">Email Id</h6>
+                            </div>
+                            <div class="col-sm-5">
+                                {{form.email}}
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row" style="height: 50px; text-align:center;">
+                        <div class="col-sm-12 text-secondary">
+                            <a href="{%url 'user_profile' request.user.id %}" class="btn btn-secondary">Close</a>
+                                <input type="submit" name="submit" value="Update" class="addBtn"
+                                       style="margin-left: 10px; padding:5px; border: 0px; border-radius:5px; width:85px; height:43px;">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- End of Edit User Profile -->
+
+</div>
+
+{% endblock %}

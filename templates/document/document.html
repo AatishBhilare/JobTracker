@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block bodycontent %}
+
+<div class="wrapper">
+
+    <!-- Documents Table -->
+    <div class="row gutters-sm">
+        <div class="col-12 col-m-12 col-sm-12">
+            <div class="card" style="background-color: white;">
+
+                <div class="card-header">
+                    <div class="row" style="margin:0;">
+                        <div class="col-sm-8">
+                            <h2>Documents</h2>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="{% url 'adddoc' %}" class="addBtn" style="float: right;">+ Add New</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-content" style="text-align: center;">
+                    <table>
+                        <thead style="border-bottom: 1.5px solid lightgray; border-top: 1.5px solid lightgray;">
+                        <tr>
+                            <th>Sr No.</th>
+                            <th>Document Name</th>
+                            <th>View</th>
+                            <th>Download</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for dObj in docObj %}
+                        <tr style="border-bottom: 0.3px solid lightgray;">
+                            <td>{{dObj.id}}</td>
+                            <td>{{dObj.doc_name}}</td>
+                            <td style="padding:10px; width:180px;">
+                                <a class="btn viewBtn" href="{{dObj.document_file.url}}" target="_blank">View</a>
+                            </td>
+                            <td style="padding:10px; width:180px;">
+                                <a class="btn addBtn" href="{{dObj.document_file.url}}" style="border-radius: 5px;" download="{{dObj.doc_name}">Download</a>
+                            </td>
+                            <td style="padding:10px; width:180px;">
+                                <a class="btn addBtn2" href="{% url 'editdoc' dObj.id %}">Edit</a>
+                            </td>
+                            <td style="padding:10px; width:180px;">
+                                <a class="btn delBtn" href="{% url 'deletedoc' dObj.id %}">Delete</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- End of Documents Table -->
+
+</div>
+
+{% endblock %}

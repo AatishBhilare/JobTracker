@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <title>JOB TRACKER</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap">
+    <link rel="stylesheet" type="text/css" href="{% static 'stylesheet/login.css' %}">
+
+</head>
+
+<body>
+<section class="side">
+    <img src="{% static 'img/JTW.png' %}" alt="">
+</section>
+
+<section class="main">
+    <div class="login-container">
+        <p class="title">Create Account</p>
+
+        <div class="separator"></div>
+        <br>
+        <form method="POST" enctype="multipart/form-data" class="login-form">
+        {%csrf_token%}
+            {{form.errors}}
+            <div class="form-control">
+                <input type="text" name="first_name" maxlength="150" id="id_first_name" placeholder="First Name">
+                <i class="fas fa-address-card"></i>
+            </div>
+            <div class="form-control">
+                <input type="text" name="last_name" maxlength="150" id="id_last_name" placeholder="Last Name">
+                <i class="fas fa-address-card"></i>
+            </div>
+            <div class="form-control">
+                <input type="text" name="username" autofocus="" required="" id="id_username" placeholder="Username">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="form-control">
+                <input type="email" name="email" maxlength="254" id="id_email" placeholder="Email Id">
+                <i class="fas fa-envelope"></i>
+            </div>
+            <div class="form-control">
+                <input type="password" name="password1" required="" id="id_password1" placeholder="Password">
+                <i class="fas fa-lock"></i>
+            </div>
+            <div class="form-control">
+                <input type="password" name="password2" required="" id="id_password2" placeholder="Confirm Your Password">
+                <i class="fas fa-lock"></i>
+            </div>
+
+            <button type="submit" name="submit" class="submit">Register</button>
+        </form>
+
+        <p class="login-message">Already have an Account? <a href="{%url 'login'%}">Login Here</a></p>
+
+    </div>
+</section>
+
+</body>
+</html>

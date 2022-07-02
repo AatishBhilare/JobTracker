@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% block bodycontent %}
+
+<div class="wrapper">
+
+    <!-- User Profile -->
+    <div class="row gutters-sm">
+        <div class="col-12 col-m-12 col-sm-12">
+            <div class="card" style="background-color: white;">
+
+                <div class="card-header">
+                    <div class="row" style="margin:0;">
+                        <div class="col-sm-8">
+                            <h2>Profile - {{user.username}}</h2>
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="{%url 'edituser' user.id %}" class="addBtn" style="float: right;">Edit</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-content">
+                    <div class="row" style="height: 50px; text-align:center;">
+                        <div class="col-sm-4">
+                            <h6 class="mb-0">Username</h6>
+                        </div>
+                        <div class="col-sm-5 text-secondary">
+                            {{user.username}}
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="row" style="height: 50px; text-align:center;">
+                        <div class="col-sm-4">
+                            <h6 class="mb-0">First Name</h6>
+                        </div>
+                        <div class="col-sm-5 text-secondary">
+                            {{user.first_name}}
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="row" style="height: 50px; text-align:center;">
+                        <div class="col-sm-4">
+                            <h6 class="mb-0">Last Name</h6>
+                        </div>
+                        <div class="col-sm-5 text-secondary">
+                            {{user.last_name}}
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="row" style="height: 50px; text-align:center;">
+                        <div class="col-sm-4">
+                            <h6 class="mb-0">Email</h6>
+                        </div>
+                        <div class="col-sm-5 text-secondary">
+                            {{user.email}}
+                        </div>
+                    </div>
+                    <hr>
+
+                    <div class="row" style="height: 50px; text-align:center;">
+                        <div class="col-sm-12 text-secondary">
+                            <a href="{%url 'index'%}" class="btn btn-secondary">Close</a>
+                            {%if request.user.username == user.username %}
+                            <a href="{%url 'changepass' user.id %}" class="btn viewBtn"
+                               style="margin-left: 10px; background-color:#28A228; border: 0px; border-radius:5px; width:200px;">Change
+                                Password</a>
+                            {%endif%}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- End of User Profile -->
+
+</div>
+
+{% endblock %}

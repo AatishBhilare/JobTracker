@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block bodycontent %}
+
+<div class="wrapper">
+
+    <!-- Add Document Form -->
+    <div class="row gutters-sm">
+        <div class="col-12 col-m-12 col-sm-12">
+            <div class="card" style="background-color: white;">
+
+                <div class="card-header">
+                    <h2>Add New Document</h2>
+                </div>
+
+                <div class="card-content" style="text-align: center;">
+                    <form method="POST" enctype="multipart/form-data">
+                        {%csrf_token%}
+
+                        <div class="row" style="height: 50px;">
+                            <div class="col-sm-4">
+                                <h6 class="mb-0">Document Name</h6>
+                            </div>
+                            <div class="col-sm-5">
+                                {{form.doc_name}}
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row" style="height: 50px;">
+                            <div class="col-sm-4">
+                                <h6 class="mb-0">Document File</h6>
+                            </div>
+                            <div class="col-sm-5">
+                                <div class="input-group mb-3">
+                                    <div class="custom-file">
+                                        {{form.document_file}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+
+                        <div class="row" style="height: 50px; text-align:center;">
+                            <div class="col-sm-12 text-secondary">
+                                <a href="{% url 'document' %}" class="btn btn-secondary">Close</a>
+                                <input type="submit" name="submit" value="Add" class="addBtn"
+                                       style="margin-left: 10px; padding:5px; border: 0px; border-radius:5px; width:85px; height:43px;">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- End of Add Document Form -->
+
+</div>
+
+{% endblock %}

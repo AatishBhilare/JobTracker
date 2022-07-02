@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block bodycontent %}
+
+<div class="wrapper">
+
+    <!-- Delete Document Form -->
+    <div class="row gutters-sm">
+        <div class="col-12 col-m-12 col-sm-12">
+            <div class="card" style="background-color: white;">
+
+                <div class="card-header">
+                    <h2>Delete Document</h2>
+                </div>
+
+                <div class="card-content" style="text-align: center;">
+                    <form method="POST" enctype="multipart/form-data">
+                        {%csrf_token%}
+
+                        <div class="row" style="height: 50px;">
+                            <div class="col-sm-4">
+                                <h6 class="mb-0">Document Name</h6>
+                            </div>
+                            <div class="col-sm-5">
+                                {{form.doc_name}}
+                            </div>
+                        </div>
+                        <hr>
+
+                        <a href="{% url 'document' %}" class="btn backBtn">Cancel</a>
+                        <button name="submit" type="submit" class="btn delBtn">Delete</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- End of Delete Document Form -->
+
+</div>
+
+{% endblock %}
